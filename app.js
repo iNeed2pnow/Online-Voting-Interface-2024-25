@@ -20,7 +20,7 @@ Copyright [2023] [Anuj Doddakaragi, Tejas Muttayanmath, Akhilesh Wade]
 var candidates=[
     [1,2,3,4],
     [1,2,3,4],
-    [1,2,3,4],[1,2],
+    [1,2,3,4],[1,2,3,4],
     [1,2,3,4],[1,2,3,4],
     [1,2,3],[1,2,3,4],
     [1,2,3],[1,2,3,4],
