@@ -1,0 +1,145 @@
+<!--
+Copyright [2023] [Anuj Doddakaragi, Tejas Muttayanmath, Akhilesh Wade]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Voting System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .vote-count {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        body {
+            background-image: url('CCA SPORTS.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+    <script src="../app.js"></script>
+
+    <h1>Vote Count</h1>
+
+    <div class="tab-buttons">
+        <!-- Tab buttons for different categories -->
+        <!-- ... Your tab buttons here ... -->
+    </div>
+
+    <div class="candidate-sections">
+        <!-- Candidate sections for different categories -->
+        <!-- ... Your candidate sections here ... -->
+    </div>
+
+    <div class="messages">
+        <p id="success-message"></p>
+        <p id="error-message"></p>
+    </div>
+
+    <a href="../index.html"><button class="toggle-button">Home</button></a>
+
+        <div class="windows11-border">
+            <h1>Vote for Your Favorite Candidates</h1>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+
+                    document.getElementById('c0').addEventListener('click', () => {
+                        document.getElementById('candidate0').checked = true;
+                        console.log(document.getElementById('candidate1').checked);
+                    });
+
+                    document.getElementById('c1').addEventListener('click', () => {
+                        document.getElementById('candidate1').checked = true;
+                        console.log(document.getElementById('candidate1').checked);
+                    });
+
+                    document.getElementById('c2').addEventListener('click', () => {
+                        document.getElementById('candidate2').checked = true;
+                    });
+
+                    document.getElementById('c3').addEventListener('click', () => {
+                        document.getElementById('candidate3').checked = true;
+                    });
+                    
+                    document.getElementById('c4').addEventListener('click', () => {
+                        document.getElementById('candidate4').checked = true;
+                    });
+
+
+                    document.getElementById('c5').addEventListener('click', () => {
+                        document.getElementById('candidate5').checked = true;
+                    });
+
+                    document.getElementById('c6').addEventListener('click', () => {
+                        document.getElementById('candidate6').checked = true;
+                    });
+                })
+            </script>
+
+            <div id="candidate-section-Head-Boy" class="candidate-section">
+                <h2 class="bh2">Sports Captain Candidates (Boys)</h2>
+                <button class="candidate-button" id="c0"><img src="../img/leeladhar.jpg"/><p>B. Leeladhar Naik</p></button>
+                <button class="candidate-button" id="c1"><img src="../img/Furkhan.jpg"/><p>Furkhan Gaanjewale</p></button>
+                <button class="candidate-button" id="c2"><img src="../img/Azlaan.jpg"/><p>Azlaan Ali</p></button>
+                <button class="candidate-button" id="c3"><img src="../img/Vihaan.jpg"/><p>Vihaan Meherwade</p> </button>
+                <button class="candidate-button" id="c4"><img src="../img/Pranav.jpg"/><p>Pranav RM</p></button>
+                  <div>
+                     <button class="submit-button" onclick="voteSC()">Submit Vote</button>
+                  </div>
+                <p id="success-message" class="success-message"></p>
+                <p id="error-message" class="error-message"></p>
+            </div>
+
+            <form>
+                <input type="radio" name="boys" value="candidate1" id="candidate0" style="display: none;">
+                <input type="radio" name="boys" value="candidate1" id="candidate1" style="display: none;">
+                <input type="radio" name="boys" value="candidate1" id="candidate2" style="display: none;">
+                <input type="radio" name="boys" value="candidate1" id="candidate3" style="display: none;">
+                <input type="radio" name="boys" value="candidate1" id="candidate4" style="display: none;">
+            </form>
+
+            <div id="candidate-section-Head-Boy" class="candidate-section">
+                <h2 class="gh2">Sports Captain Candidates (Girl)</h2>
+                <button class="g-candidate-button" id="c5"><img src="../img/Aditi.jpg"/><p>Aditi Pawar</p></button>
+                <button class="g-candidate-button" id="c6"><img src="../img/Namratha.jpg"/><p>Namratha H Megharaj</p></button>
+               <div>
+                <button class="g-submit-button" onclick="vote(3)">Submit Vote</button>
+               </div>
+                <p id="success-message" class="success-message"></p>
+                <p id="error-message" class="error-message"></p>
+            </div>
+
+            <form>
+                <input type="radio" name="candidate" value="candidate01" id="candidate5" style="display: none;">
+                <input type="radio" name="candidate" value="candidate02" id="candidate6" style="display: none;">
+                <input type="radio" name="candidate" value="candidate03" id="candidate7" style="display: none;">
+                <input type="radio" name="candidate" value="candidate04" id="candidate8" style="display: none;">
+            </form>
+            
+        </div>
+        <hr>
+        <button onclick="saveCookieTxt();"></button>
+    <footer style="position:static;bottom:0px"><p>© Anuj Doddakaragi, Tejas M, Akhilesh Wade [2023]</p><p>Powered by ChatGPT and Bard</p></footer>
+</body>
+</html>
