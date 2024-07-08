@@ -57,7 +57,7 @@ function createVoteArray(){
         }
         votes.push(temparr);
     }
-    votes[2]=[0,0,0,0]
+    votes[2]=[0,0,0,0,0,0,0,0]
 }
 
 createVoteArray();
@@ -157,6 +157,7 @@ function resetVotes(){
     createVoteList(candidates,13,votes);
     createVoteList(candidates,14,votes);
     createVoteList(candidates,15,votes);
+    createVoteList(candidates,16,votes);
 
     createPersistentCookie("CrispBiscuit", votes, 69);
     createPersistentCookie("BakedWafers", voted, 69);
@@ -201,7 +202,7 @@ function vote(index){
 
 function voteSC(){
     syncVotes("down");
-    for(var i=0;i<5;i++){
+    for(var i=0;i<8;i++){
         if((document.getElementById(`candidate${i}`).checked)==true){
             votes[2][i]+=1;
 
@@ -220,7 +221,7 @@ function voteSC(){
 
 function updateVoteSC(){
     syncVotes("down");
-    for(var i=0;i<5;i++){
+    for(var i=0;i<8;i++){
         var voteCountElement = document.getElementById(`candidate${i}-votes`);
         voteCountElement.innerText=votes[2][i];
 
@@ -245,7 +246,7 @@ function saveVotes() {
 }
 
 function updateVC(){
-    for(i=0;i<14;i++){
+    for(i=0;i<16;i++){
         for(j=0;j<candidates[i].length;j++){
             if(i<10){
                 document.getElementById('v0'+`${i}`+`${j}`).innerText=votes[i][j];
