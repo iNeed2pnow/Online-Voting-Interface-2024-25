@@ -1,73 +1,256 @@
-<!--
-Copyright [2023] [Anuj Doddakaragi, Tejas Muttayanmath, Akhilesh Wade]
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
--->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>E-Voting System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background-image: url('pages/img1.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-        }
-    </style>
-    <link rel="stylesheet" href="./style.css"><script src="./app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Arushi Jha❤️</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    background: linear-gradient(270deg, #ffb6c1, #ffd1dc, #ffe4e1);
+    background-size: 600% 600%;
+    animation: gradientShift 10s ease infinite;
+  }
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(255,255,255,0.4);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(255,100,150,0.3);
+  }
+  .intro h1 {
+    color: #b30059;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+  }
+  .intro button {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .intro button:hover { background-color: #ff1e56; }
+
+  .heart, .rose {
+    position: absolute;
+    bottom: 0;
+    animation: floatUp 10s linear infinite;
+    opacity: 0.8;
+  }
+  .heart { color: red; font-size: 20px; }
+  .rose { color: #c70039; font-size: 25px; }
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+  }
+
+  .float-text {
+    position: absolute;
+    color: rgba(255,255,255,0.8);
+    font-size: 1.2em;
+    font-weight: bold;
+    animation: fadeMove 8s linear forwards;
+  }
+  @keyframes fadeMove {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-50px); }
+  }
+
+  .box {
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(255,100,150,0.3);
+    display: inline-block;
+    max-width: 90%;
+    width: 350px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+  }
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  .main-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #b30059;
+    z-index: 10;
+  }
+
+  h1 { font-size: 1.8em; margin-bottom: 15px; }
+  p { font-size: 1.1em; margin-bottom: 25px; min-height: 60px; }
+
+  button {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    margin: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  button:hover { background-color: #ff1e56; }
+
+  .yay {
+    font-size: 2.5em;
+    color: #ff4081;
+    text-shadow: 2px 2px 10px white;
+  }
+  .flower {
+    position: absolute;
+    top: -10px;
+    font-size: 25px;
+    animation: flowerRain 5s linear infinite;
+  }
+  @keyframes flowerRain {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(100vh); opacity: 0; }
+  }
+</style>
 </head>
 <body>
-    <script src="./app.js"></script>
 
-    <h1>Welcome to E-Voting services</h1>
+<!-- 🎵 Background music -->
+<audio id="bg-music" src="your-song.mp3" loop></audio>
 
-    <div class="messages"><p id="success-message"></p><p id="error-message"></p></div>
+<!-- 💌 Intro screen -->
+<div class="intro" id="intro">
+  <h1>You have a message from Tejas 💌</h1>
+  <button onclick="startMessage()">Open Message 💖</button>
+</div>
 
-        <div class="windows11-border">
-            <h1>Choose the post to vote for</h1>
-            <div id="tabs">
-                <hr>
-                <div>
-                <a href="./pages/headboy.html"><button class="tab-button active">Head Boy</button></a>
-                <a href="./pages/headgirl.html"><button class="tab-button active">Head Girl</button></a>
-                </div>
-                <hr>
-                <div>
-                <a href="./pages/sportscapt.html"><button class="tab-button active">Sports Captain</button></a>
-                <a href="./pages/ccacapt.html"><button class="tab-button active">CCA Captain</button></a>
-                </div>
-                <hr>
-                <div>
-                <a href="./pages/knights.html"><button class="tab-button active">Knights Captain</button></a>
-                <a href="./pages/samurais.html"><button class="tab-button active">Samurais Captain</button></a>
-                </div>
-                <div>
-                <a href="./pages/spartans.html"><button class="tab-button active">Spartans Captain</button></a>
-                <a href="./pages/vikings.html"><button class="tab-button active">Vikings Captain</button></a>
-                </div>
-                <hr>
-                <div>
-                  <a href="./pages/view votes.html"><button class="tab-button active">View Votes</button></a>
-                </div>
+<!-- Hidden main content -->
+<div class="main-content" id="main" style="display:none;">
+  <div class="box">
+    <h1>Hey, Arushi ❤️</h1>
+    <p id="typed-text"></p>
+    <div>
+      <button onclick="yesClicked()">Yes 💖</button>
+      <button onclick="noClicked()">No 💔</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function fadeInMusic() {
+    const music = document.getElementById('bg-music');
+    music.play().then(() => {
+      music.volume = 0;
+      const fadeTime = 5000; 
+      const steps = 50;
+      const step = 1 / steps;
+      const interval = fadeTime / steps;
+      const fade = setInterval(() => {
+        if (music.volume < 1) {
+          music.volume = Math.min(1, music.volume + step);
+        } else {
+          clearInterval(fade);
+        }
+      }, interval);
+    }).catch(err => console.log("Autoplay blocked:", err));
+  }
+
+  function startMessage() {
+    document.getElementById('intro').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    fadeInMusic();
+    startFloating();
+    floatingText();
+    typeEffect();
+  }
+
+  function startFloating() {
+    setInterval(() => {
+      const symbols = ['❤️', '🌹'];
+      const el = document.createElement('div');
+      el.className = Math.random() > 0.5 ? 'heart' : 'rose';
+      el.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.animationDuration = 8 + Math.random() * 5 + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 12000);
+    }, 400);
+  }
+
+  function floatingText() {
+    setInterval(() => {
+      const texts = ["I love you the most giddi❤️", "my fine shawty 💞", "sirf meri he tu 💘"];
+      const el = document.createElement('div');
+      el.className = 'float-text';
+      el.innerText = texts[Math.floor(Math.random() * texts.length)];
+      el.style.left = Math.random() * 80 + 'vw';
+      el.style.top = Math.random() * 80 + 'vh';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 8000);
+    }, 3000);
+  }
+
+  const text = "I am really sorry for what I have said... I promise to put more effort from my side. I will respect your decision in this matter, and I really want to get back with you sweetu. Love you the most 💓";
+  let i = 0;
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("typed-text").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 50);
+    }
+  }
+
+  function noClicked() {
+    alert('Wrong option 😜');
+  }
+
+  function yesClicked() {
+    document.body.innerHTML = `
+      <audio id="bg-music" src="your-song.mp3" autoplay loop></audio>
+      <div class="main-content">
+        <div class="box">
+          <div class="yay">YAYYY 💐</div>
+          <p>Thank you for saying yes, my love! 💞</p>
         </div>
-        
-    </body>
+      </div>`;
+    startFlowerRain();
+    fadeInMusic();
+  }
 
-    <footer style="position:static;bottom:0px;color:white;background-color: #131313;"><p>© Tejas M, Akhilesh Wade [2024]</p><p>Powered by ChatGPT</p></footer>
-    
+  function startFlowerRain() {
+    const flowers = ['🌸', '🌹', '🌼', '💐', '🌷'];
+    setInterval(() => {
+      const flower = document.createElement('div');
+      flower.className = 'flower';
+      flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = 3 + Math.random() * 2 + 's';
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 5000);
+    }, 200);
+  }
+</script>
+
+</body>
 </html>
